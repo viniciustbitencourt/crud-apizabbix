@@ -20,31 +20,31 @@ config = SafeConfigParser()
 config.read('conf.ini')
 
 #pega os valores do arquivo de configuracao
-host = config.get('runtest', 'hostname')
-usr = config.get('runtest', 'user')
-pwd = config.get('runtest', 'passwd')
+host01 = config.get('zabbix01', 'hostname')
+usr01 = config.get('zabbix01', 'user')
+pwd01 = config.get('zabbix01', 'passwd')
 
 #pega os valores do arquivo de configuração
-hostm1 = config.get('auth', 'hostname')
-usrm1 = config.get('auth', 'user')
-pwdm1 = config.get('auth', 'passwd')
+host02 = config.get('zabbix02', 'hostname')
+usr02 = config.get('zabbix02', 'user')
+pwd02 = config.get('zabbix02', 'passwd')
 
 #API Zabbix com a URL de cada Servidor
-zapi = ZabbixAPI(host)
-zapi2 = ZabbixAPI(hostm1)
+zapi = ZabbixAPI(host01)
+zapi2 = ZabbixAPI(host02)
 
 #Faz login com a API Zabbix
-zapi.login(usr, pwd)
-zapi2.login(usrm1, pwdm1)
+zapi.login(usr01, pwd01)
+zapi2.login(usr02, pwd02)
 
 class AlteraHosts(object):
 	pass
 	
 	##TELA DE EXIBICAO
-	print "*************************************************************************"
-        print "******************ALTERA HOSTS - EM DOIS SERVIDORES ZABBIX***************"
-        print "*             FAVOR INSERIR TODOS OS DADOS CORRETAMENTE!                *"
-        print "*************************************************************************"
+	print "***************************************************************************"
+        print "*********** SCRIPT - ALTERA HOSTS EM DOIS SERVIDORES ZABBIX ***************"
+        print "*             FAVOR INSERIR TODOS OS DADOS CORRETAMENTE!                  *"
+        print "***************************************************************************"
 	print'1 - PARA ALTERAR O NOME DO EQUIPAMENTO'
 	print'2 - PARA ALTERAR O IP DO EQUIPAMENTO'
 	print'3 - PARA SAIR DESSA TELA  !'
