@@ -8,7 +8,7 @@
 #permitindo uma ótima facilidade e agilidade nesses processos.
 #A integracao e realizada via Zabbix API
 # Author: Vinicius Trancoso Bitencourt - <http:github/viniciustbitencourt>
-# Zabbix API Versão 2.1
+#
 # FileName: altera_hosts.py
 
 import sys
@@ -19,12 +19,12 @@ from zabbix_api import ZabbixAPI
 config = SafeConfigParser()
 config.read('conf.ini')
 
-#pega os valores do arquivo de configuracao QTD
+#pega os valores do arquivo de configuracao
 host = config.get('runtest', 'hostname')
 usr = config.get('runtest', 'user')
 pwd = config.get('runtest', 'passwd')
 
-#pega os valores do arquivo de configuração M1
+#pega os valores do arquivo de configuração
 hostm1 = config.get('auth', 'hostname')
 usrm1 = config.get('auth', 'user')
 pwdm1 = config.get('auth', 'passwd')
@@ -66,12 +66,12 @@ class AlteraHosts(object):
                                 sys.exit(0)
                 valida_dados(host, rename)		
 
-		#Zabbix API - Altera no Zabbix M1
+		#Zabbix API - Altera no Zabbix
         	for x in zapi.host.get({'filter': {'name': host}}):
                 	host_id = x['hostid']
         	altera = zapi.host.update({'hostid': host_id, 'host': rename, 'status': 0})
 		
-		#Zabbix API - Altera no Zabbix QTD
+		#Zabbix API - Altera no Zabbix
 		for y in zapi2.host.get({'filter': {'name':host}}):
 			host_id2 = y['hostid']
 		altera2 = zapi2.host.update({'hostid': host_id2, 'host': rename, 'status': 0})
@@ -92,7 +92,7 @@ class AlteraHosts(object):
                         	sys.exit(0)
 		valida_dados(host, rename)
 
-		#Zabbix API - Altera IP Zabbix M1	
+		#Zabbix API - Altera IP Zabbix Primeiro Servidor	
         	for x in zapi.host.get({'filter': {'name': host}}):
                 	host_id = x['hostid']
 
@@ -101,7 +101,7 @@ class AlteraHosts(object):
 		
 		alteraip = zapi.hostinterface.update({'interfaceid': host_interface, 'ip': rename})
 
-		#Zabbix API - Altera IP Zabbix QTD
+		#Zabbix API - Altera IP Zabbix Segundo Servidor
 		for y in zapi2.host.get({'filter': {'name': host}}):
                         host_id2 = y['hostid']
 
