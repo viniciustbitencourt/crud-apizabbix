@@ -16,25 +16,25 @@ from zabbix_api import ZabbixAPI
 config = SafeConfigParser()
 config.read('conf.ini')
 
-host = config.get('runtest', 'hostname')
-usr = config.get('runtest', 'user')
-pwd = config.get('runtest', 'passwd')
+host01 = config.get('zabbix01', 'hostname')
+usr01 = config.get('zabbix01', 'user')
+pwd01 = config.get('zabbix01', 'passwd')
 
-hostm1 = config.get('auth', 'hostname')
-usrm1 = config.get('auth', 'user')
-pwdm1 = config.get('auth', 'passwd')
+host02 = config.get('zabbix02', 'hostname')
+usr02 = config.get('zabbix02', 'user')
+pwd02 = config.get('zabbix02', 'passwd')
 
-zapi = ZabbixAPI(host)
-zapi2 = ZabbixAPI(hostm1)
+zapi = ZabbixAPI(host01)
+zapi2 = ZabbixAPI(host02)
 
-zapi.login(usr, pwd)
-zapi2.login(usrm1, pwdm1)
+zapi.login(usr01, pwd01)
+zapi2.login(usr02, pwd02)
 
 class CadastrarHosts(object):
 	pass
 
 	print "*************************************************************************"
-	print "********BEM VINDO - CADASTRA CADA HOST EM DOIS SERVIDORES ZABBIX*********"
+	print "********SCRIPT - CADASTRA CADA HOST EM DOIS SERVIDORES ZABBIX************"
 	print "*             FAVOR INSERIR TODOS OS DADOS CORRETAMENTE!                *"
 	print "*************************************************************************"
 
@@ -91,4 +91,4 @@ class CadastrarHosts(object):
                 "templates": [{"templateid": template_id2}],
         })
 
-        print ("O equipamento " + host + " foi incluido com sucesso !!!")
+        print ("O equipamento " + host + " foi cadastrado com sucesso !")
