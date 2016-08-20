@@ -8,18 +8,16 @@ permitindo uma ótima facilidade e agilidade nesses processos.</p>
 
 <h3>Installation</h3>
 <pre>
-<b>Clone project
-</pre>
-
+<b>Clone project</b>
 git clone https://github.com/viniciustbitencourt/crud-apizabbix.git
 
 <b>Install dependencies</b>
 pip install zabbix_api
 python version 2.7.11(lastet)
+</pre>
 
 <h3>Configuration</h3>
 <pre>Configuration - <b>conf.ini</b>
-</pre>
 
 <b>Zabbix Configuration</b>
 <i>[zabbix01]</i>
@@ -32,3 +30,4 @@ hostname = hostname of the second server in zabbix
 user = username of the server
 passwd = password of the server
 
+</pre>
