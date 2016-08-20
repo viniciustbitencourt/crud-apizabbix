@@ -1,10 +1,9 @@
 <h1>crud-apizabbix</h1>
 
-<p>
-Esse script foi desenvolvido para facilitar a forma como cadastramos,
-alteramos ou excluímos os principais ativos em dois ou mais servidores zabbix.
-A ideia é utilizar esse script para ambientes onde os eventos não estão sincronizados,
-permitindo uma ótima facilidade e agilidade nesses processos.</p>
+<p>This script was developed to insert,
+alter or exclude the main assets in two or more zabbix servers.
+The idea is to use this script for environments where events are not synchronized,
+allowing a great ease and agility in these processes.</p>
 
 <h3>Installation</h3>
 <pre>
@@ -21,12 +20,12 @@ python version 2.7.11(lastet)
 
 <b>Zabbix Configuration</b>
 <i>[zabbix01]</i>
-hostname = hostname of the first server in zabbix 
+hostname = hostname of the first server zabbix
 user = username of the server
 passwd = password of the server
 
 <i>[zabbix02]</i>
-hostname = hostname of the second server in zabbix
+hostname = hostname of the second server zabbix
 user = username of the server
 passwd = password of the server
 
